@@ -5,9 +5,9 @@ def q1
   names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.push("斎藤")
+  names << "斎藤"
 
-  puts names
+  p names
 
 end
 
@@ -18,7 +18,7 @@ def q2
   # 以下に回答を記載
   array = array1 + array2
 
-  puts array
+  p array
 
 end
 
@@ -34,7 +34,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  puts sports.compact!
+  p sports.compact!
 
 end
 
@@ -52,9 +52,7 @@ def q6
   numbers1 = [1, 2, 3, 4, 5]
 
   # 以下に回答を記載
-  numbers2 = numbers1.map do |i|
-    i*10
-  end
+  numbers2 = numbers1.map {|i| i*10}
 
   p numbers2
 
@@ -64,7 +62,7 @@ def q7
   array = ["1", "2", "3", "4", "5"]
 
   # 以下に回答を記載
-  p array.map(&:to_i)
+  p array.map!(&:to_i)
 
 end
 
@@ -72,7 +70,7 @@ def q8
   programming_languages = %w(ruby php python javascript)
 
   # 以下に回答を記載
-  programming_languages = programming_languages.map(&:capitalize)
+  programming_languages.map!(&:capitalize)
   upper_case_programming_languages = programming_languages.map(&:upcase)
 
   # 以下は変更しないで下さい
@@ -95,7 +93,7 @@ def q10
 
   # 以下に回答を記載
   foods.each do |food|
-    if food.include?("うに") then
+    if food.include?("うに")
       puts "#{food}は好物です"
     else
       puts "#{food}はまあまあ好きです"
