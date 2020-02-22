@@ -2,12 +2,12 @@
 # 回答の出力を確認される際は，「ruby main.rb」をターミナルから実行して下さい。
 
 def q1
-  names = ["田中", "佐藤", "佐々木", "高橋", "斎藤"]
+  names = ["田中", "佐藤", "佐々木", "高橋"]
 
   # 以下に回答を記載
-  names.each do |name|
-    puts name
-  end
+  names.push("斎藤")
+
+  puts names
 
 end
 
@@ -26,13 +26,7 @@ def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
-  i = 0
-
-  numbers.each do |num|
-    i += 1 if num == 3
-  end
-
-  puts i
+  puts numbers.count(3)
 
 end
 
@@ -40,7 +34,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
-  puts sports.compact
+  puts sports.compact!
 
 end
 
