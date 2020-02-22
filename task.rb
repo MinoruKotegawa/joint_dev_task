@@ -106,6 +106,11 @@ def q11
   sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]]
 
   # 以下に回答を記載
+  sports.flatten!
+  sports.uniq!
+
+  puts "ユーザーの趣味一覧"
+  sports.each.with_index(1) {|sport, i| puts "No#{i} #{sport}"}
 
 end
 
@@ -113,6 +118,7 @@ def q12
   data = { user: { name: "satou", age: 33 } }
 
   # 以下に回答を記載
+  puts data[:user][:name]
 
 end
 
@@ -121,6 +127,8 @@ def q13
   update_data = { age: 32, address: "沖縄" }
 
   # 以下に回答を記載
+  user_data.merge!(update_data)
+  p user_data
 
 end
 
@@ -128,7 +136,8 @@ def q14
   data = { name: "satou", age: 33, address: "saitama", hobby: "soccer", email: "hoge@fuga.com" }
 
   # 以下に回答を記載
-
+  array = data.keys
+  p array
 end
 
 def q15
@@ -136,6 +145,13 @@ def q15
   data2 = { name: "yamada", hobby: "baseball", role: "normal" }
 
   # 以下に回答を記載
+  data = data1
+
+  if data[:age]
+    puts "OK"
+  else
+    puts "NG"
+  end
 
 end
 
@@ -148,11 +164,33 @@ def q16
   ]
 
   # 以下に回答を記載
+  users.each {|i| puts "私の名前は#{i[:name]}です。年齢は#{i[:age]}歳です。"}
+
 
 end
 
 class UserQ17
   # 以下に回答を記載
+  def initialize(name:, age:, gender:, admin:)
+    @name = name
+    @age = age
+    @gender = gender
+    @admin = admin
+  end
+
+  def info
+
+    if @admin == true
+      adstr = "有り"
+    else
+      adstr = "無し"
+    end
+
+    puts "名前：#{@name}"
+    puts "年齢：#{@age}"
+    puts "性別：#{@gender}"
+    puts "管理者権限：#{adstr}"
+  end
 
 end
 
@@ -168,6 +206,23 @@ end
 
 class UserQ18
   # 以下に回答を記載
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
+
+  def introduce
+    seijin = 20  # メッセージを分ける年齢
+    message = ""
+
+    if @age >= seijin
+      message = "こんにちは，#{@name}と申します。宜しくお願いいたします。"
+    else
+      message = "はいさいまいど〜，#{@name}です！！！"
+    end
+
+    return message
+  end
 
 end
 
@@ -182,8 +237,9 @@ end
 
 class Item
   # 以下を修正して下さい
+  attr_reader :name
 
-  def initialize(name)
+  def initialize(name:)
     @name = name
   end
 end
@@ -196,11 +252,40 @@ end
 
 class UserQ20
   # 以下に回答を記載
+  attr_reader :name, :age
+
+  def initialize(name:, age:)
+    @name = name
+    @age = age
+  end
 
 end
 
 class Zoo
   # 以下に回答を記載
+  def initialize(name:, entry_fee:)
+    @entry_fee = entry_fee
+  end
+
+  def info_entry_fee(user)
+
+    price = 0 # 入場料
+
+    # 入場料判定
+    case user.age
+    when 0..5
+      price = @entry_fee[:infant]
+    when 6..12
+      price = @entry_fee[:children]
+    when 13..64
+      price = @entry_fee[:adult]
+    else
+      price = @entry_fee[:senior]
+    end
+
+    puts "#{user.name}さんの入場料金は #{price} 円です。"
+
+  end
 
 end
 
