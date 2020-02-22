@@ -2,9 +2,12 @@
 # 回答の出力を確認される際は，「ruby main.rb」をターミナルから実行して下さい。
 
 def q1
-  names = ["田中", "佐藤", "佐々木", "高橋"]
+  names = ["田中", "佐藤", "佐々木", "高橋", "斎藤"]
 
   # 以下に回答を記載
+  names.each do |name|
+    puts name
+  end
 
 end
 
@@ -13,6 +16,9 @@ def q2
   array2 = %w(bird bat tiger)
 
   # 以下に回答を記載
+  array = array1 + array2
+
+  puts array
 
 end
 
@@ -20,6 +26,13 @@ def q3
   numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9]
 
   # 以下に回答を記載
+  i = 0
+
+  numbers.each do |num|
+    i += 1 if num == 3
+  end
+
+  puts i
 
 end
 
@@ -27,6 +40,7 @@ def q4
   sports = ["サッカー", "フットサル", nil, "野球", "バスケ", nil, "バレー"]
 
   # 以下に回答を記載
+  puts sports.compact
 
 end
 
@@ -35,6 +49,8 @@ def q5
   array2 = [1, 5, 8, 10]
 
   # 以下に回答を記載
+  puts array1.empty?
+  puts array2.empty?
 
 end
 
