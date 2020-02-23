@@ -175,7 +175,7 @@ class UserQ17
   end
 
   def info
-    @admin == true ? (adstr = "有り") : (adstr = "無し")
+    adstr = @admin ? "有り" : "無し"
 
     puts "名前：#{@name}"
     puts "年齢：#{@age}"
