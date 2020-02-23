@@ -146,12 +146,7 @@ def q15
 
   # 以下に回答を記載
   data = data1
-
-  if data[:age]
-    puts "OK"
-  else
-    puts "NG"
-  end
+  data[:age] ? (puts "OK") : (puts "NG")
 
 end
 
@@ -171,20 +166,16 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  def initialize(name:, age:, gender:, admin:)
-    @name = name
-    @age = age
-    @gender = gender
-    @admin = admin
+
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
+    @gender = params[:gender]
+    @admin = params[:admin]
   end
 
   def info
-
-    if @admin == true
-      adstr = "有り"
-    else
-      adstr = "無し"
-    end
+    @admin == true ? (adstr = "有り") : (adstr = "無し")
 
     puts "名前：#{@name}"
     puts "年齢：#{@age}"
@@ -206,22 +197,19 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  def initialize(name:, age:)
-    @name = name
-    @age = age
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
   end
 
   def introduce
-    seijin = 20  # メッセージを分ける年齢
-    message = ""
+    age = 20  # メッセージを分ける年齢
 
-    if @age >= seijin
+    if @age >= age
       message = "こんにちは，#{@name}と申します。宜しくお願いいたします。"
     else
       message = "はいさいまいど〜，#{@name}です！！！"
     end
-
-    return message
   end
 
 end
@@ -269,9 +257,8 @@ class Zoo
 
   def info_entry_fee(user)
 
-    price = 0 # 入場料
-
     # 入場料判定
+    price =
     case user.age
     when 0..5
       price = @entry_fee[:infant]
