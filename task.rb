@@ -261,13 +261,13 @@ class Zoo
     price =
     case user.age
     when 0..5
-      price = @entry_fee[:infant]
+      @entry_fee[:infant]
     when 6..12
-      price = @entry_fee[:children]
+      @entry_fee[:children]
     when 13..64
-      price = @entry_fee[:adult]
+      @entry_fee[:adult]
     else
-      price = @entry_fee[:senior]
+      @entry_fee[:senior]
     end
 
     puts "#{user.name}さんの入場料金は #{price} 円です。"
